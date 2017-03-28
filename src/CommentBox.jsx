@@ -34,17 +34,15 @@ export default class CommentBox extends Component {
       });
   }
 
-  handleCommentUpdate(comment) {
-    let id = comment._id;
+  handleCommentUpdate(id, comment) {
     axios.put(`${this.props.url}/${id}`, comment)
       .catch(err => {
         console.error(err);
       });
   }
 
-  handleCommentDelete(comment) {
-    let id = comment._id;
-    axios.delete(`${this.props.url}/${id}`, comment)
+  handleCommentDelete(id) {
+    axios.delete(`${this.props.url}/${id}`)
       .catch(err => {
         console.error(err);
       });
